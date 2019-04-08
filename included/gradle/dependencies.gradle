@@ -1,0 +1,91 @@
+dependencyManagement {
+    imports {
+        mavenBom 'org.wildfly.bom:wildfly-javaee8:15.0.1.Final'
+    }
+    dependencies {
+        // version for org.jboss.spec:jboss-javaee-8.0 taken from org.wildfly.bom:wildfly-javaee8, but must be specified extra
+        dependency 'org.jboss.spec:jboss-javaee-8.0:1.0.2.Final'
+
+        // weld dependencies
+        dependency 'javax.enterprise:cdi-api:2.0.SP1'
+        dependency 'org.jboss.weld:weld-api:3.0.SP4'
+        dependency 'org.jboss.weld:weld-junit5:1.3.1.Final'
+        dependencySet(group: 'org.jboss.weld.se', version: '3.0.5.Final') {
+            entry 'weld-se-tests'
+            entry 'weld-se-core'
+        }
+
+        dependency 'org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1'
+        dependency 'xml-apis:xml-apis:1.4.01'
+
+        dependencySet(group: 'com.fasterxml.jackson.core', version:'2.9.7') {
+            entry 'jackson-core'
+            entry 'jackson-databind'
+        }
+        dependency 'commons-io:commons-io:2.5'
+        dependencySet(group: 'org.apache.deltaspike.core', version: '1.8.0') {
+            entry 'deltaspike-core-api'
+            entry 'deltaspike-core-impl'
+        }
+        dependency 'com.esotericsoftware.kryo:kryo:2.21.1'
+        dependency 'apollosoft:random:2.2.0'
+        dependency 'commons-beanutils:commons-beanutils:1.9.3' // use compileOnly and import wildfly module
+        dependency 'com.thoughtworks.xstream:xstream:1.4.9'
+
+        // required by multi-project setup
+        dependency 'org.apache.commons:commons-lang3:3.7'
+        dependency 'org.apache.commons:commons-text:1.2'
+        dependency 'io.swagger:swagger-annotations:1.5.12'
+        dependencySet(group: 'com.squareup.okhttp', version: '2.7.5') {
+            entry 'okhttp'
+            entry 'logging-interceptor'
+        }
+        dependency 'com.squareup.okio:okio:1.17.3'
+        dependency 'com.google.code.gson:gson:2.6.2'
+        dependency 'org.bouncycastle:bcprov-jdk15on:1.57'
+
+        dependencySet(group: 'ag.swissknife', version: 'master-SNAPSHOT') {
+            entry 'swiss-knife'
+        }
+
+        dependencySet(group: 'org.richfaces', version: '4.5.17.Final') {
+            entry 'richfaces'
+            entry 'richfaces-a4j'
+            entry 'richfaces-core'
+            entry 'richfaces-distribution'
+        }
+        dependency 'javax.el:javax.el-api:3.0.0'
+
+
+        dependencySet(group: 'ag.palm', version: 'master-SNAPSHOT') {
+            entry 'palm-api'
+            entry 'capi-client-base'
+            entry 'capi-client-connector'
+        }
+
+        // tests
+//        dependency 'junit:junit:4.12'
+        dependencySet(group: 'org.junit.jupiter', version: '5.4.0') {
+            entry 'junit-jupiter-api'
+            entry 'junit-jupiter-params'
+            entry 'junit-jupiter-engine'
+        }
+        dependency 'pl.pragmatists:JUnitParams:1.1.0'
+        dependency 'org.mockito:mockito-core:2.10.0'
+
+        dependencySet(group: 'org.apache.logging.log4j', version: '2.7') {
+            entry 'log4j-api'
+            entry 'log4j-core'
+            entry 'log4j-slf4j-impl'
+        }
+        dependency 'javax.interceptor:javax.interceptor-api:1.2'
+        dependency 'javax.inject:javax.inject:1'
+        dependency 'com.rabbitmq:amqp-client:5.0.0'
+        dependency 'javax.el:javax.el-api:3.0.0'
+
+        // core-jackpot
+        dependency 'org.jboss.msc:jboss-msc:1.2.6.Final'
+        dependency 'org.wildfly:wildfly-clustering-service:10.1.0.Final'
+        dependency 'org.wildfly:wildfly-clustering-singleton-api:10.1.0.Final'
+    }
+}

@@ -1,0 +1,7 @@
+apply plugin: 'ear'
+dependencies{
+	deploy(
+		'included:submodule'
+	)
+	
+}
